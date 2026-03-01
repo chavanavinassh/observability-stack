@@ -1,0 +1,43 @@
+{
+  "title": "Observability \u2013 SSL Monitoring",
+  "schemaVersion": 42,
+  "version": 1,
+  "refresh": "1m",
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "SSL expiring <30 days",
+      "targets": [
+        {
+          "expr": "count(((probe_ssl_earliest_cert_expiry-time())/86400)<30)",
+          "instant": true
+        }
+      ],
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": 2,
+      "type": "table",
+      "title": "SSL expiry table",
+      "targets": [
+        {
+          "expr": "(probe_ssl_earliest_cert_expiry-time())/86400",
+          "instant": true,
+          "format": "table"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      }
+    }
+  ]
+}

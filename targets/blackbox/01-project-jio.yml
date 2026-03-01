@@ -1,0 +1,33 @@
+# =========================
+# PROJECT: JIO
+# =========================
+
+# WEBSITE
+- targets:
+  - https://jio.com
+  labels:
+    project: jio
+    environment: production
+    service: website
+    probe: http
+    bb_module: https_2xx_central_public
+
+# API
+- targets:
+  - https://jsonplaceholder.typicode.com/posts
+  labels:
+    project: jio
+    environment: production
+    service: api
+    probe: http
+    bb_module: https_api_uptime
+
+# SSL
+- targets:
+  - https://jio.com
+  labels:
+    project: jio
+    environment: production
+    service: ssl
+    probe: ssl
+    bb_module: https_ssl_expiry

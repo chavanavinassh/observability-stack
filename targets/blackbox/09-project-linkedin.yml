@@ -1,0 +1,23 @@
+# =========================
+# PROJECT: LINKEDIN
+# =========================
+
+# WEBSITE
+- targets:
+  - https://www.linkedin.com
+  labels:
+    project: linkedin
+    environment: production
+    service: website
+    probe: http
+    bb_module: https_2xx_central_public
+
+# SSL
+- targets:
+  - https://www.linkedin.com
+  labels:
+    project: linkedin
+    environment: production
+    service: ssl
+    probe: ssl
+    bb_module: https_ssl_expiry

@@ -1,0 +1,32 @@
+# =========================
+# PROJECT: FLIPKART
+# =========================
+
+# ---------- 1) APP SERVER ----------
+- targets:
+  - 3.111.215.216:9100
+  labels:
+    project: flipkart
+    env: production
+    role: app-server
+    job: node
+
+# ---------- 2) API SERVER ----------
+- targets:
+  - 3.111.215.216:9100
+  labels:
+    project: flipkart
+    env: production
+    role: api-server
+    job: node
+
+# ---------- 3) DB SERVER ----------
+- targets:
+  - 3.111.215.216:9100
+  labels:
+    project: flipkart
+    env: production
+    role: db-server
+    job: node
+
+    

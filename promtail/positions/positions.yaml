@@ -1,0 +1,9 @@
+positions:
+  /var/log/alternatives.log: "1092"
+  /var/log/apport.log: "0"
+  /var/log/auth.log: "343757"
+  /var/log/cloud-init-output.log: "7042"
+  /var/log/cloud-init.log: "240066"
+  /var/log/dpkg.log: "115322"
+  /var/log/kern.log: "120645"
+  /var/log/ubuntu-advantage-apt-hook.log: "0"

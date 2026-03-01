@@ -1,0 +1,231 @@
+{
+  "title": "Enterprise NOC \u2013 Unified Monitoring Dashboard",
+  "schemaVersion": 42,
+  "version": 1,
+  "refresh": "10s",
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "name": "project",
+        "label": "Project",
+        "type": "query",
+        "datasource": null,
+        "refresh": 1,
+        "multi": true,
+        "includeAll": true,
+        "query": "label_values(probe_success, project)"
+      },
+      {
+        "name": "service",
+        "label": "Service",
+        "type": "query",
+        "datasource": null,
+        "refresh": 1,
+        "multi": true,
+        "includeAll": true,
+        "query": "label_values(probe_success{project=~\"$project\"}, service)"
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Total Websites UP",
+      "targets": [
+        {
+          "expr": "sum(probe_success{service='website'})",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Total APIs UP",
+      "targets": [
+        {
+          "expr": "sum(probe_success{service='api'})",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      }
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "Website SLA % (24h)",
+      "targets": [
+        {
+          "expr": "avg_over_time(probe_success{project=~\"$project\",service='website'}[24h]) * 100",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      }
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "SSL Expiring < 7 Days",
+      "targets": [
+        {
+          "expr": "count(((probe_ssl_earliest_cert_expiry - time()) / 86400) < 7)",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      }
+    },
+    {
+      "id": 5,
+      "type": "stat",
+      "title": "Project Website Status Grid",
+      "targets": [
+        {
+          "expr": "max_over_time(probe_success{project=~\"$project\",service='website'}[1m])",
+          "legendFormat": "{{project}} | {{instance}}",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": 6,
+      "type": "stat",
+      "title": "Project API Status Grid",
+      "targets": [
+        {
+          "expr": "max_over_time(probe_success{project=~\"$project\",service='api'}[1m])",
+          "legendFormat": "{{project}} | {{instance}}",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 12
+      }
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Latency Trend (All Services)",
+      "targets": [
+        {
+          "expr": "probe_duration_seconds{project=~\"$project\",service=~\"$service\"}",
+          "legendFormat": "{{project}} | {{service}} | {{instance}}",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s"
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      }
+    },
+    {
+      "id": 8,
+      "type": "table",
+      "title": "SSL Expiry Table",
+      "targets": [
+        {
+          "expr": "(probe_ssl_earliest_cert_expiry{project=~\"$project\"} - time()) / 86400",
+          "instant": true,
+          "format": "table",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 28
+      }
+    },
+    {
+      "id": 9,
+      "type": "table",
+      "title": "DOWN Services",
+      "targets": [
+        {
+          "expr": "probe_success{project=~\"$project\"} == 0",
+          "instant": true,
+          "format": "table",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 28
+      }
+    },
+    {
+      "id": 10,
+      "type": "table",
+      "title": "HTTP Status Codes",
+      "targets": [
+        {
+          "expr": "probe_http_status_code{project=~\"$project\"}",
+          "instant": true,
+          "format": "table",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      }
+    }
+  ]
+}

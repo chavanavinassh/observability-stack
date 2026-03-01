@@ -1,0 +1,44 @@
+{{ define "prod.email.body" }}
+
+<h2>🚨 Production Monitoring Alert</h2>
+
+<p><b>Status:</b> {{ .Status | toUpper }}</p>
+<p><b>Project:</b> {{ .CommonLabels.project }}</p>
+<p><b>Environment:</b> {{ .CommonLabels.env }}</p>
+<p><b>Severity:</b> {{ .CommonLabels.severity | toUpper }}</p>
+<p><b>Alert Name:</b> {{ .CommonLabels.alertname }}</p>
+<p><b>Summary:</b> {{ .CommonAnnotations.summary }}</p>
+
+<hr/>
+
+{{ range .Alerts }}
+
+<p><b>Instance:</b> {{ .Labels.instance }}</p>
+
+{{ if .Labels.role }}
+<p><b>Role:</b> {{ .Labels.role }}</p>
+{{ end }}
+
+{{ if .Labels.team }}
+<p><b>Team:</b> {{ .Labels.team }}</p>
+{{ end }}
+
+{{ if .Labels.bb_module }}
+<p><b>Blackbox Module:</b> {{ .Labels.bb_module }}</p>
+{{ end }}
+
+<p><b>Description:</b></p>
+<pre>{{ .Annotations.description }}</pre>
+
+<p><b>Started At:</b> {{ .StartsAt }}</p>
+
+<hr/>
+
+{{ end }}
+
+<p>🔗 Prometheus: http://prometheus.company.com</p>
+<p>🔗 Alertmanager: http://alertmanager.company.com</p>
+
+<p><i>This is an automated production alert. Please investigate immediately.</i></p>
+
+{{ end }}

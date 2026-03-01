@@ -1,0 +1,253 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+# ==============================
+# RULE FILES
+# ==============================
+
+rule_files:
+  - "/opt/observability/prometheus/rules/*.yml"
+
+# ==============================
+# ALERTMANAGER
+# ==============================
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - "localhost:9093"
+
+# ==============================
+# SCRAPE CONFIGS
+# ==============================
+
+scrape_configs:
+
+# =====================================================
+# PROMETHEUS SELF MONITORING
+# =====================================================
+
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+# =====================================================
+# NODE EXPORTER
+# =====================================================
+
+  - job_name: "node"
+    file_sd_configs:
+      - files:
+          - "/opt/observability/targets/node/*.yml"
+        refresh_interval: 30s
+
+# =====================================================
+# APPLICATION METRICS
+# =====================================================
+
+  - job_name: "apps"
+    file_sd_configs:
+      - files:
+          - "/opt/observability/targets/app/*.yml"
+        refresh_interval: 30s
+
+# =====================================================
+# BLACKBOX HTTP / HTTPS
+# =====================================================
+
+  - job_name: "blackbox-http"
+    metrics_path: /probe
+    scrape_timeout: 15s
+
+    file_sd_configs:
+      - files:
+          - "/opt/observability/targets/blackbox/*.yml"
+        refresh_interval: 30s
+
+    relabel_configs:
+
+      # Keep only HTTP probes
+      - source_labels: [probe]
+        regex: http
+        action: keep
+
+      # Ensure module exists
+      - source_labels: [bb_module]
+        regex: .+
+        action: keep
+
+      # Pass module
+      - source_labels: [bb_module]
+        target_label: __param_module
+
+      # Pass target URL
+      - source_labels: [__address__]
+        target_label: __param_target
+
+      # Set instance label
+      - source_labels: [__param_target]
+        target_label: instance
+
+      # Blackbox exporter address
+      - target_label: __address__
+        replacement: localhost:9115
+
+      # Preserve labels
+      - source_labels: [project]
+        target_label: project
+
+      - source_labels: [service]
+        target_label: service
+
+      - source_labels: [environment]
+        target_label: environment
+
+      - source_labels: [bb_module]
+        target_label: module
+
+      # Extract hostname
+      - source_labels: [__param_target]
+        regex: https?://([^/]+)
+        target_label: host
+        replacement: $1
+
+# =====================================================
+# BLACKBOX SSL EXPIRY
+# =====================================================
+
+  - job_name: "blackbox-ssl"
+    metrics_path: /probe
+    scrape_interval: 60s
+    scrape_timeout: 15s
+
+    file_sd_configs:
+      - files:
+          - "/opt/observability/targets/blackbox/*.yml"
+        refresh_interval: 30s
+
+    relabel_configs:
+
+      - source_labels: [probe]
+        regex: ssl
+        action: keep
+
+      - source_labels: [bb_module]
+        regex: .+
+        action: keep
+
+      - source_labels: [bb_module]
+        target_label: __param_module
+
+      - source_labels: [__address__]
+        target_label: __param_target
+
+      - source_labels: [__param_target]
+        target_label: instance
+
+      - target_label: __address__
+        replacement: localhost:9115
+
+      - source_labels: [project]
+        target_label: project
+
+      - source_labels: [service]
+        target_label: service
+
+      - source_labels: [environment]
+        target_label: environment
+
+      - source_labels: [__param_target]
+        regex: https?://([^/]+)
+        target_label: host
+        replacement: $1
+
+# =====================================================
+# BLACKBOX TCP
+# =====================================================
+
+  - job_name: "blackbox-tcp"
+    metrics_path: /probe
+    scrape_timeout: 15s
+
+    file_sd_configs:
+      - files:
+          - "/opt/observability/targets/blackbox/*.yml"
+        refresh_interval: 30s
+
+    relabel_configs:
+
+      - source_labels: [probe]
+        regex: tcp
+        action: keep
+
+      - source_labels: [bb_module]
+        regex: .+
+        action: keep
+
+      - source_labels: [bb_module]
+        target_label: __param_module
+
+      - source_labels: [__address__]
+        target_label: __param_target
+
+      - source_labels: [__param_target]
+        target_label: instance
+
+      - target_label: __address__
+        replacement: localhost:9115
+
+      - source_labels: [project]
+        target_label: project
+
+      - source_labels: [service]
+        target_label: service
+
+      - source_labels: [environment]
+        target_label: environment
+
+# =====================================================
+# BLACKBOX DNS
+# =====================================================
+
+  - job_name: "blackbox-dns"
+    metrics_path: /probe
+    scrape_interval: 60s
+    scrape_timeout: 15s
+
+    file_sd_configs:
+      - files:
+          - "/opt/observability/targets/blackbox/*.yml"
+        refresh_interval: 30s
+
+    relabel_configs:
+
+      - source_labels: [probe]
+        regex: dns
+        action: keep
+
+      - source_labels: [bb_module]
+        regex: .+
+        action: keep
+
+      - source_labels: [bb_module]
+        target_label: __param_module
+
+      - source_labels: [__address__]
+        target_label: __param_target
+
+      - source_labels: [__param_target]
+        target_label: instance
+
+      - target_label: __address__
+        replacement: localhost:9115
+
+      - source_labels: [project]
+        target_label: project
+
+      - source_labels: [service]
+        target_label: service
+
+      - source_labels: [environment]
+        target_label: environment

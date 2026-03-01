@@ -1,0 +1,33 @@
+# =========================
+# PROJECT: WIKIPEDIA
+# =========================
+
+# WEBSITE
+- targets:
+  - https://www.wikipedia.org
+  labels:
+    project: wikipedia
+    environment: production
+    service: website
+    probe: http
+    bb_module: https_2xx_central_public
+
+# API
+- targets:
+  - https://en.wikipedia.org/api/rest_v1/page/random/summary
+  labels:
+    project: wikipedia
+    environment: production
+    service: api
+    probe: http
+    bb_module: https_api_uptime
+
+# SSL
+- targets:
+  - https://www.wikipedia.org
+  labels:
+    project: wikipedia
+    environment: production
+    service: ssl
+    probe: ssl
+    bb_module: https_ssl_expiry

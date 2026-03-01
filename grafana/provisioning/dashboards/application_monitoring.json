@@ -1,0 +1,69 @@
+{
+  "title": "Observability \u2013 Application Monitoring",
+  "schemaVersion": 42,
+  "version": 1,
+  "refresh": "5s",
+  "templating": {
+    "list": [
+      {
+        "name": "project",
+        "type": "query",
+        "query": "label_values(probe_success, project)",
+        "includeAll": true
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Website Status",
+      "targets": [
+        {
+          "expr": "probe_success{project=~\"$project\",service='website'}",
+          "instant": true
+        }
+      ],
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Response Time",
+      "targets": [
+        {
+          "expr": "probe_duration_seconds{project=~\"$project\"}"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      }
+    },
+    {
+      "id": 3,
+      "type": "table",
+      "title": "HTTP Codes",
+      "targets": [
+        {
+          "expr": "probe_http_status_code{project=~\"$project\"}",
+          "instant": true,
+          "format": "table"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      }
+    }
+  ]
+}

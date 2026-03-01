@@ -1,0 +1,110 @@
+groups:
+- name: project-availability-alerts
+  rules:
+
+  # ============================
+  # WEBSITE DOWN
+  # ============================
+  - alert: Website_Down
+    expr: probe_success{probe="http", bb_module=~"https_web_.*|http_web_.*"} == 0
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Website Down - {{ $labels.project }}"
+      description: |
+        🚨 PRODUCTION ALERT
+
+        Project: {{ $labels.project }}
+        Alert Type: Website Down
+        Target: {{ $labels.instance }}
+        Host: {{ $labels.host }}
+        Module: {{ $labels.bb_module }}
+        Severity: {{ $labels.severity }}
+
+        The website is unreachable for more than 2 minutes.
+        Immediate investigation required.
+
+  # ============================
+  # API DOWN
+  # ============================
+  - alert: API_Down
+    expr: probe_success{probe="http", bb_module=~"https_api_.*|http_api_.*"} == 0
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      summary: "API Down - {{ $labels.project }}"
+      description: |
+        🚨 PRODUCTION ALERT
+
+        Project: {{ $labels.project }}
+        Alert Type: API Down
+        Endpoint: {{ $labels.instance }}
+        Host: {{ $labels.host }}
+        Module: {{ $labels.bb_module }}
+        Severity: {{ $labels.severity }}
+
+        The API endpoint is unreachable for more than 2 minutes.
+
+  # ============================
+  # SSL EXPIRY - 14 DAYS
+  # ============================
+  - alert: SSL_Expiry_14_Days
+    expr: ssl_cert_days_left_any{probe="ssl"} <= 14
+    for: 1h
+    labels:
+      severity: warning
+    annotations:
+      summary: "SSL Expiry Soon (14 days) - {{ $labels.project }}"
+      description: |
+        ⚠️ SSL CERTIFICATE EXPIRY WARNING
+
+        Project: {{ $labels.project }}
+        Domain: {{ $labels.instance }}
+        Host: {{ $labels.host }}
+        Severity: warning
+
+        SSL certificate will expire within 14 days.
+
+  # ============================
+  # SSL EXPIRY - 7 DAYS
+  # ============================
+  - alert: SSL_Expiry_7_Days
+    expr: ssl_cert_days_left_any{probe="ssl"} <= 7
+    for: 30m
+    labels:
+      severity: critical
+    annotations:
+      summary: "SSL Expiry Critical (7 days) - {{ $labels.project }}"
+      description: |
+        ❗ SSL CERTIFICATE EXPIRY CRITICAL
+
+        Project: {{ $labels.project }}
+        Domain: {{ $labels.instance }}
+        Host: {{ $labels.host }}
+        Severity: critical
+
+        SSL certificate will expire within 7 days.
+
+  # ============================
+  # SSL EXPIRED
+  # ============================
+  - alert: SSL_Expired
+    expr: ssl_cert_is_expired{probe="ssl"} == 1
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "SSL Certificate EXPIRED - {{ $labels.project }}"
+      description: |
+        ❌ SSL CERTIFICATE EXPIRED
+
+        Project: {{ $labels.project }}
+        Domain: {{ $labels.instance }}
+        Host: {{ $labels.host }}
+        Severity: critical
+
+        SSL certificate has already expired.
+        Immediate renewal required.
+

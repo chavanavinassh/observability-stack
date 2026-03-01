@@ -1,0 +1,203 @@
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'ex1@gmail.com'
+  smtp_auth_username: 'ex1@gmail.com'
+  smtp_auth_password: 'seld kmxr mije vegdwn'
+  smtp_require_tls: true
+
+templates:
+- "/opt/observability/alertmanager/templates/*.tmpl"
+
+# ==========================================================
+# INHIBITION RULES
+# ==========================================================
+inhibit_rules:
+
+# 1️⃣ If SSL EXPIRED → suppress 7 and 14 day warnings
+- source_matchers:
+    - alertname="SSL_Expired"
+  target_matchers:
+    - alertname=~"SSL_Expiry_7_Days|SSL_Expiry_14_Days"
+  equal: ["project","instance"]
+
+# 2️⃣ If 7-day SSL alert firing → suppress 14-day
+- source_matchers:
+    - alertname="SSL_Expiry_7_Days"
+  target_matchers:
+    - alertname="SSL_Expiry_14_Days"
+  equal: ["project","instance"]
+
+# 3️⃣ If Website down → suppress API down (same project)
+- source_matchers:
+    - alertname="Website_Down"
+  target_matchers:
+    - alertname="API_Down"
+  equal: ["project"]
+
+# 4️⃣ If HostDown → suppress HighCPU/Memory/Disk alerts
+- source_matchers:
+    - alertname="HostDown"
+  target_matchers:
+    - alertname=~"HighCPUUsage|HighMemoryUsage|DiskSpaceLow|HighLoadAverage"
+  equal: ["instance"]
+
+# ==========================================================
+# ROUTING TREE
+# ==========================================================
+route:
+  receiver: default-ops
+  group_by: ['project','alertname','severity']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 3h
+
+  routes:
+
+    # -----------------------
+    # Critical alerts faster repeat
+    # -----------------------
+    - matchers:
+        - severity="critical"
+      repeat_interval: 1h
+      continue: true
+
+    # -----------------------
+    # Project Based Routing
+    # -----------------------
+    - matchers:
+        - project="jio"
+      receiver: jio-team
+
+    - matchers:
+        - project="amazon"
+      receiver: amazon-team
+
+    - matchers:
+        - project="google"
+      receiver: google-team
+
+    - matchers:
+        - project="microsoft"
+      receiver: microsoft-team
+
+    - matchers:
+        - project="github"
+      receiver: github-team
+
+    - matchers:
+        - project="wikipedia"
+      receiver: wikipedia-team
+
+    - matchers:
+        - project="netflix"
+      receiver: netflix-team
+
+    - matchers:
+        - project="reddit"
+      receiver: reddit-team
+
+    - matchers:
+        - project="linkedin"
+      receiver: linkedin-team
+
+    - matchers:
+        - project="x"
+      receiver: x-team
+
+
+# ==========================================================
+# RECEIVERS
+# ==========================================================
+receivers:
+
+- name: default-ops
+  email_configs:
+  - to: ops@company.com
+    send_resolved: true
+    headers:
+      subject: "[DEFAULT][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+# ----------------------------------------------------------
+
+- name: jio-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[FLIPKART][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+- name: amazon-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[AMAZON][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+- name: google-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[GOOGLE][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+- name: microsoft-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[MICROSOFT][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+- name: github-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[GITHUB][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+- name: wikipedia-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[WIKIPEDIA][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+- name: netflix-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[NETFLIX][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+- name: reddit-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[REDDIT][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+- name: linkedin-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[LINKEDIN][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+
+- name: x-team
+  email_configs:
+  - to: ex@gmail.com
+    send_resolved: true
+    headers:
+      subject: "[X][{{ .CommonLabels.severity | toUpper }}] {{ .CommonAnnotations.summary }}"
+    html: '{{ template "prod.email.body" . }}'
+

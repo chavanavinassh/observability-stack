@@ -1,0 +1,44 @@
+{
+  "title": "Observability \u2013 Troubleshooting",
+  "schemaVersion": 42,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "id": 1,
+      "type": "table",
+      "title": "Failed services",
+      "targets": [
+        {
+          "expr": "probe_success==0",
+          "instant": true,
+          "format": "table"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": 2,
+      "type": "table",
+      "title": "HTTP failures",
+      "targets": [
+        {
+          "expr": "probe_http_status_code>=400",
+          "instant": true,
+          "format": "table"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      }
+    }
+  ]
+}

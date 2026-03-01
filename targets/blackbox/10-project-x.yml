@@ -1,0 +1,84 @@
+# =========================
+# PROJECT: X
+# =========================
+
+# WEBSITE
+- targets:
+  - https://x.com
+  labels:
+    project: x
+    environment: production
+    service: website
+    probe: http
+    bb_module: https_2xx_central_public
+
+# SSL
+- targets:
+  - https://x.com
+  labels:
+    project: x
+    environment: production
+    service: ssl
+    probe: ssl
+    bb_module: https_ssl_expiry
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+# # =========================
+# # PROJECT: X
+# # =========================
+
+# # ---------- Website Uptime ----------
+# - targets:
+#   - https://x.com
+#   labels:
+#     project: x
+#     probe: http
+#     bb_module: https_2xx_strict_tls12
+
+# # ---------- Security Headers ----------
+# - targets:
+#   - https://x.com
+#   labels:
+#     project: x
+#     probe: http
+#     bb_module: https_required_headers
+
+# # ---------- API Uptime ----------
+# - targets:
+#   - https://api.ipify.org?format=json
+#   labels:
+#     project: x
+#     probe: http
+#     bb_module: https_api_uptime
+
+# # ---------- TCP Port Checks ----------
+# - targets:
+#   - x.com:443
+#   - x.com:80
+#   labels:
+#     project: x
+#     probe: tcp
+#     bb_module: tcp_connect
+
+# # ---------- DNS A Record Check ----------
+# - targets:
+
+#   - 8.8.8.8
+#   labels:
+#     project: x
+#     probe: dns
+#     bb_module: dns_A
+#     dns_name: x.com
+

@@ -1,0 +1,33 @@
+# =========================
+# PROJECT: AMAZON
+# =========================
+
+# WEBSITE
+- targets:
+  - https://www.amazon.com
+  labels:
+    project: amazon
+    environment: production
+    service: website
+    probe: http
+    bb_module: https_2xx_central_public
+
+# API (Sample public endpoint for uptime testing)
+- targets:
+  - https://amazon.com
+  labels:
+    project: amazon
+    environment: production
+    service: api
+    probe: http
+    bb_module: https_api_uptime
+
+# SSL
+- targets:
+  - https://www.amazon.com
+  labels:
+    project: amazon
+    environment: production
+    service: ssl
+    probe: ssl
+    bb_module: https_ssl_expiry

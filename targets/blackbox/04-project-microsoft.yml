@@ -1,0 +1,33 @@
+# =========================
+# PROJECT: MICROSOFT
+# =========================
+
+# WEBSITE
+- targets:
+  - https://www.microsoft.com
+  labels:
+    project: microsoft
+    environment: production
+    service: website
+    probe: http
+    bb_module: https_2xx_central_public
+
+# API
+- targets:
+  - https://graph.microsoft.com
+  labels:
+    project: microsoft
+    environment: production
+    service: api
+    probe: http
+    bb_module: https_api_uptime
+
+# SSL
+- targets:
+  - https://www.microsoft.com
+  labels:
+    project: microsoft
+    environment: production
+    service: ssl
+    probe: ssl
+    bb_module: https_ssl_expiry

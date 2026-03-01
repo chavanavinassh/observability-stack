@@ -1,0 +1,366 @@
+modules:
+
+  # ============================================================
+  # STRICT WEBSITE UPTIME (for your OWN apps / internal services)
+  # - 2xx/3xx normal behavior
+  # - does NOT treat 403/429 as OK
+  # ============================================================
+  https_2xx_strict_tls12:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+
+  # ============================================================
+  # CENTRAL MONITORING FOR PUBLIC WEBSITES (CDN/WAF FRIENDLY)
+  #
+  # WHY:
+  # - Some large websites return 403/429 to datacenter probes
+  # - You can't "network-fix" that centrally without proxies/residential egress
+  #
+  # WHAT THIS DOES:
+  # - Sends browser-like headers (often avoids 403)
+  # - Accepts 2xx/3xx as UP
+  # - OPTIONAL: Treats 403/429 as reachable (UP) to prevent noisy "DOWN"
+  #
+  # NOTE:
+  # - If you want 403/429 to still be counted as DOWN, remove them from valid_status_codes.
+  # ============================================================
+  https_2xx_central_public:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+
+      # Consider "reachable" if site returns these codes.
+      # Keeps central monitoring stable for CDN/WAF sites.
+      valid_status_codes: [200, 201, 202, 204, 301, 302, 303, 307, 308, 403, 429]
+
+      headers:
+        User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36"
+        Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+        Accept-Language: "en-US,en;q=0.9"
+        Cache-Control: "no-cache"
+
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+
+
+
+  # ============================================================
+  # OPTIONAL WEBSITE UPTIME OVER IPV6
+  # ============================================================
+  https_2xx_ipv6:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip6
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+
+  # ============================================================
+  # SECURITY HEADERS COMPLIANCE (should be separate alert, not "DOWN")
+  # ============================================================
+  https_required_headers:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+      fail_if_header_not_matches:
+        - header: Strict-Transport-Security
+          regexp: "max-age=.*"
+          allow_missing: false
+        - header: X-Content-Type-Options
+          regexp: "nosniff"
+          allow_missing: true
+        - header: Content-Security-Policy
+          regexp: ".*"
+          allow_missing: true
+
+  # ============================================================
+  # API UPTIME (HTTPS)
+  # ============================================================
+  https_api_uptime:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+
+  # ============================================================
+  # API JSON VALIDATION - CEL (SAMPLE)  ✅ fixed && operator
+  # ============================================================
+  https_api_json_cel_sample:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+      headers:
+        Accept: "application/json"
+      fail_if_body_json_not_matches_cel: "body.id == 1 && body.userId == 1"
+
+  # ============================================================
+  # API JSON VALIDATION - CEL (PROD)
+  # ============================================================
+  https_api_json_cel:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+      headers:
+        Accept: "application/json"
+      fail_if_body_json_not_matches_cel: 'body.status == "ok"'
+
+  # ============================================================
+  # API JSON VALIDATION - REGEX
+  # ============================================================
+  https_api_json_regex:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+      headers:
+        Accept: "application/json"
+      fail_if_body_not_matches_regexp:
+        - "\"status\"\\s*:\\s*\"ok\""
+
+  # ============================================================
+  # HTTP API (NON-SSL) UPTIME
+  # ============================================================
+  http_api_uptime:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: false
+      valid_http_versions: ["HTTP/1.1"]
+
+  # ============================================================
+  # UNIVERSAL JSON API MONITORING (WORKS FOR ALL PUBLIC APIs)
+  # Supports GitHub, AWS, Azure, Stripe, custom APIs
+  # ============================================================
+  https_api_json_universal:
+    prober: http
+    timeout: 15s
+    http:
+      method: GET
+
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+
+      valid_http_versions:
+        - "HTTP/1.1"
+        - "HTTP/2.0"
+
+      # Accept all success responses
+      valid_status_codes:
+        - 200
+        - 201
+        - 202
+        - 203
+        - 204
+
+      headers:
+        User-Agent: "Mozilla/5.0 (compatible; Prometheus-Blackbox-Exporter/1.0; +https://prometheus.io)"
+        Accept: "application/json, text/plain, */*"
+        Accept-Language: "en-US,en;q=0.9"
+        Cache-Control: "no-cache"
+        Connection: "keep-alive"
+
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+
+
+
+  # ============================================================
+  # TLS NEGATIVE TESTS (OPTIONAL)
+  # ============================================================
+  https_only_tls10:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1"]
+      tls_config:
+        min_version: TLS10
+        max_version: TLS10
+        insecure_skip_verify: false
+
+  https_only_tls11:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1"]
+      tls_config:
+        min_version: TLS11
+        max_version: TLS11
+        insecure_skip_verify: false
+
+  # ============================================================
+  # TLS INFO (OPTIONAL)
+  # ============================================================
+  tls_version_info:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+
+  tls_cipher_info:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+
+  # ============================================================
+  # SSL EXPIRY PROBE
+  # ============================================================
+  https_ssl_expiry:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+      follow_redirects: true
+      fail_if_not_ssl: true
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        min_version: TLS12
+        insecure_skip_verify: false
+
+  # ============================================================
+  # TCP CONNECT
+  # ============================================================
+  tcp_connect:
+    prober: tcp
+    timeout: 5s
+
+  # ============================================================
+  # DNS MODULES (examples)
+  # ============================================================
+  dns_A:
+    prober: dns
+    timeout: 5s
+    dns:
+      query_name: "example.com"
+      query_type: A
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+
+  dns_AAAA:
+    prober: dns
+    timeout: 5s
+    dns:
+      query_name: "example.com"
+      query_type: AAAA
+      preferred_ip_protocol: ip6
+      ip_protocol_fallback: true
+
+  dns_CNAME:
+    prober: dns
+    timeout: 5s
+    dns:
+      query_name: "www.example.com"
+      query_type: CNAME
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+
+  dns_MX:
+    prober: dns
+    timeout: 5s
+    dns:
+      query_name: "example.com"
+      query_type: MX
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: true
+

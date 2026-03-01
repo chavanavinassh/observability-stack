@@ -1,0 +1,50 @@
+groups:
+- name: blackbox_ssl_recordings
+  interval: 5m
+  rules:
+
+    # ---------------------------------------------------------
+    # 1) EARLIEST Certificate Expiry (main metric)
+    #    Requires: probe_ssl_earliest_cert_expiry (blackbox exporter)
+    # ---------------------------------------------------------
+    - record: ssl_cert_days_left
+      expr: (probe_ssl_earliest_cert_expiry - time()) / 86400
+
+    # ---------------------------------------------------------
+    # 2) FALLBACK (some Blackbox versions use alternate metric)
+    #    Requires: probe_ssl_last_chain_expiry_timestamp_seconds
+    # ---------------------------------------------------------
+    - record: ssl_cert_days_left_fallback
+      expr: (probe_ssl_last_chain_expiry_timestamp_seconds - time()) / 86400
+
+    # ---------------------------------------------------------
+    # 3) UNIFIED (prefer primary, else fallback)
+    #    NOTE: Adjust label list if you key on additional labels like "exported_instance" or "target"
+    # ---------------------------------------------------------
+    - record: ssl_cert_days_left_any
+      expr: ssl_cert_days_left OR on(instance, job) ssl_cert_days_left_fallback
+
+    # ---------------------------------------------------------
+    # 4) Certificate already expired?
+    # ---------------------------------------------------------
+    - record: ssl_cert_is_expired
+      expr: ssl_cert_days_left_any <= 0
+
+    # ---------------------------------------------------------
+    # 5) Expiry Buckets (Grafana + Alerts)
+    # ---------------------------------------------------------
+    - record: ssl_cert_expiring_30d
+      expr: ssl_cert_days_left_any <= 30
+
+    - record: ssl_cert_expiring_14d
+      expr: ssl_cert_days_left_any <= 14
+
+    - record: ssl_cert_expiring_7d
+      expr: ssl_cert_days_left_any <= 7
+
+    - record: ssl_cert_expiring_3d
+      expr: ssl_cert_days_left_any <= 3
+
+    - record: ssl_cert_expiring_1d
+      expr: ssl_cert_days_left_any <= 1
+

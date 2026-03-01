@@ -1,0 +1,245 @@
+level=info ts=2026-03-01T08:43:41.184602509Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=info ts=2026-03-01T08:43:41.186276131Z caller=server.go:284 msg="server listening on addresses" http=[::]:3200 grpc=[::]:9097
+level=error ts=2026-03-01T08:43:41.188538208Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: optional-store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:43:41.367717629Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=error ts=2026-03-01T08:43:41.36907949Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: optional-store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:43:41.621597905Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=info ts=2026-03-01T08:43:41.623300378Z caller=cache.go:55 msg="caches available to storage backend" parquet-footer=false bloom=false parquet-offset-idx=false parquet-column-idx=false trace-id-index=false parquet-page=false
+level=error ts=2026-03-01T08:43:41.624370995Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: optional-store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:43:41.871427235Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=error ts=2026-03-01T08:43:41.872775181Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: optional-store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:43:42.125750831Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=info ts=2026-03-01T08:43:42.126270319Z caller=cache.go:55 msg="caches available to storage backend" parquet-footer=false bloom=false parquet-offset-idx=false parquet-column-idx=false trace-id-index=false parquet-page=false
+level=error ts=2026-03-01T08:43:42.127080725Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:47:05.234118214Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=info ts=2026-03-01T08:47:05.23648715Z caller=cache.go:55 msg="caches available to storage backend" parquet-footer=false bloom=false parquet-offset-idx=false parquet-column-idx=false trace-id-index=false parquet-page=false
+level=error ts=2026-03-01T08:47:05.237462091Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:47:05.617051993Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=error ts=2026-03-01T08:47:05.619843534Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: optional-store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:47:05.865728561Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=info ts=2026-03-01T08:47:05.866477208Z caller=cache.go:55 msg="caches available to storage backend" parquet-footer=false bloom=false parquet-offset-idx=false parquet-column-idx=false trace-id-index=false parquet-page=false
+level=error ts=2026-03-01T08:47:05.868420907Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: optional-store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:47:06.122477544Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=info ts=2026-03-01T08:47:06.122917533Z caller=cache.go:55 msg="caches available to storage backend" parquet-footer=false bloom=false parquet-offset-idx=false parquet-column-idx=false trace-id-index=false parquet-page=false
+level=error ts=2026-03-01T08:47:06.123846658Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:47:06.371746197Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=info ts=2026-03-01T08:47:06.372166506Z caller=cache.go:55 msg="caches available to storage backend" parquet-footer=false bloom=false parquet-offset-idx=false parquet-column-idx=false trace-id-index=false parquet-page=false
+level=error ts=2026-03-01T08:47:06.373176212Z caller=main.go:110 msg="error running Tempo" err="failed to init module services: error initialising module: optional-store: failed to create store: mkdir /var/tempo: permission denied"
+level=info ts=2026-03-01T08:50:09.735854532Z caller=main.go:103 msg="Starting Tempo" version="(version=2.10.1, branch=HEAD, revision=f3dd27582)" target=all
+level=info ts=2026-03-01T08:50:09.737263381Z caller=cache.go:55 msg="caches available to storage backend" parquet-footer=false bloom=false parquet-offset-idx=false parquet-column-idx=false trace-id-index=false parquet-page=false
+level=info ts=2026-03-01T08:50:09.741076393Z caller=server.go:284 msg="server listening on addresses" http=[::]:3200 grpc=[::]:9097
+level=info ts=2026-03-01T08:50:09.741533355Z caller=cache.go:55 msg="caches available to storage backend" parquet-footer=false bloom=false parquet-offset-idx=false parquet-column-idx=false trace-id-index=false parquet-page=false
+level=info ts=2026-03-01T08:50:09.746653039Z caller=frontend.go:90 msg="creating middleware in query frontend"
+level=info ts=2026-03-01T08:50:09.746738297Z caller=sync_handler_cache.go:131 msg="init frontend cache" role=frontend-search enabled=false
+level=info ts=2026-03-01T08:50:09.746797543Z caller=sync_handler_cache.go:131 msg="init frontend cache" role=frontend-search enabled=false
+level=info ts=2026-03-01T08:50:09.74681486Z caller=sync_handler_cache.go:131 msg="init frontend cache" role=frontend-search enabled=false
+level=info ts=2026-03-01T08:50:09.746827582Z caller=sync_handler_cache.go:131 msg="init frontend cache" role=frontend-search enabled=false
+level=info ts=2026-03-01T08:50:09.746847144Z caller=sync_handler_cache.go:131 msg="init frontend cache" role=frontend-search enabled=false
+level=info ts=2026-03-01T08:50:09.746859344Z caller=sync_handler_cache.go:131 msg="init frontend cache" role=frontend-search enabled=false
+level=warn ts=2026-03-01T08:50:09.74769442Z caller=modules.go:460 msg="Worker address is empty in single binary mode. Attempting automatic worker configuration. If queries are unresponsive consider configuring the worker explicitly." address=127.0.0.1:9097
+level=info ts=2026-03-01T08:50:09.747934087Z caller=worker.go:108 msg="Starting querier worker connected to query-frontend" frontend=127.0.0.1:9097
+ts=2026-03-01T08:50:09Z level=info msg="OTel Shim Logger Initialized" component=tempo
+level=warn ts=2026-03-01T08:50:09.749727797Z caller=modules.go:359 msg="metrics-generator is not configured." err="no metrics_generator.storage.path configured, metrics generator will be disabled"
+level=info ts=2026-03-01T08:50:09.750372291Z caller=module_service.go:82 msg=starting module=internal-server
+level=info ts=2026-03-01T08:50:09.750517694Z caller=module_service.go:82 msg=starting module=cache-provider
+level=info ts=2026-03-01T08:50:09.750750738Z caller=module_service.go:82 msg=starting module=server
+level=info ts=2026-03-01T08:50:09.750848057Z caller=module_service.go:82 msg=starting module=store
+level=info ts=2026-03-01T08:50:09.750878732Z caller=module_service.go:82 msg=starting module=optional-store
+level=info ts=2026-03-01T08:50:09.750976556Z caller=module_service.go:82 msg=starting module=overrides
+level=info ts=2026-03-01T08:50:09.751016279Z caller=module_service.go:82 msg=starting module=memberlist-kv
+level=info ts=2026-03-01T08:50:09.751117562Z caller=module_service.go:82 msg=starting module=metrics-generator-ring
+level=info ts=2026-03-01T08:50:09.751200367Z caller=ring.go:372 msg="ring doesn't exist in KV store yet"
+level=info ts=2026-03-01T08:50:09.751307136Z caller=module_service.go:82 msg=starting module=overrides-api
+level=info ts=2026-03-01T08:50:09.75137633Z caller=module_service.go:82 msg=starting module=usage-report
+level=info ts=2026-03-01T08:50:09.75150542Z caller=module_service.go:82 msg=starting module=live-store-ring
+level=info ts=2026-03-01T08:50:09.751591748Z caller=ring.go:372 msg="ring doesn't exist in KV store yet"
+level=info ts=2026-03-01T08:50:09.751626498Z caller=module_service.go:82 msg=starting module=secondary-ring
+level=info ts=2026-03-01T08:50:09.751666831Z caller=module_service.go:82 msg=starting module=ring
+level=info ts=2026-03-01T08:50:09.751694798Z caller=module_service.go:82 msg=starting module=compactor
+level=info ts=2026-03-01T08:50:09.751703202Z caller=ring.go:372 msg="ring doesn't exist in KV store yet"
+level=info ts=2026-03-01T08:50:09.75173176Z caller=tempodb.go:638 msg="polling enabled" interval=5m0s blocklist_concurrency=50
+level=info ts=2026-03-01T08:50:09.751769935Z caller=module_service.go:82 msg=starting module=querier
+level=info ts=2026-03-01T08:50:09.752241919Z caller=module_service.go:82 msg=starting module=ingester
+level=info ts=2026-03-01T08:50:09.752291717Z caller=ingester.go:412 msg="beginning wal replay"
+level=info ts=2026-03-01T08:50:09.752241307Z caller=poller.go:249 msg="blocklist poll complete" seconds=0.000466305
+level=info ts=2026-03-01T08:50:09.752465574Z caller=compactor.go:157 msg="enabling compaction"
+level=info ts=2026-03-01T08:50:09.752552477Z caller=tempodb.go:598 msg="compaction and retention enabled."
+level=info ts=2026-03-01T08:50:09.752673545Z caller=module_service.go:82 msg=starting module=metrics-generator
+level=info ts=2026-03-01T08:50:09.753001591Z caller=worker.go:184 msg="adding connection" addr=127.0.0.1:9097
+level=info ts=2026-03-01T08:50:09.753026199Z caller=module_service.go:82 msg=starting module=distributor
+ts=2026-03-01T08:50:09Z level=info msg="Starting GRPC server" component=tempo endpoint=[::]:4320
+ts=2026-03-01T08:50:09Z level=info msg="Starting HTTP server" component=tempo endpoint=[::]:4321
+level=info ts=2026-03-01T08:50:09.75387984Z caller=worker.go:250 msg="total worker concurrency updated" totalConcurrency=20
+level=info ts=2026-03-01T08:50:09.754088939Z caller=module_service.go:82 msg=starting module=query-frontend
+level=warn ts=2026-03-01T08:50:09.752407772Z caller=wal.go:103 msg="unowned file entry ignored during wal replay" file=blocks err=null
+level=info ts=2026-03-01T08:50:09.75453034Z caller=ingester.go:450 msg="wal replay complete"
+level=info ts=2026-03-01T08:50:09.754630959Z caller=ingester.go:464 msg="reloading local blocks" tenants=0
+level=info ts=2026-03-01T08:50:09.755099332Z caller=lifecycler.go:693 msg="not loading tokens from file, tokens file path is empty"
+level=info ts=2026-03-01T08:50:09.755236627Z caller=lifecycler.go:720 msg="instance not found in ring, adding with no tokens" ring=ingester
+level=info ts=2026-03-01T08:50:09.75542623Z caller=lifecycler.go:562 msg="auto-joining cluster after timeout" ring=ingester
+level=info ts=2026-03-01T08:50:09.757709438Z caller=app.go:216 msg="Tempo started"
+level=info ts=2026-03-01T08:55:09.757115717Z caller=poller.go:249 msg="blocklist poll complete" seconds=9.5323e-05
+level=info ts=2026-03-01T09:00:09.756615478Z caller=poller.go:249 msg="blocklist poll complete" seconds=8.4093e-05
+level=info ts=2026-03-01T09:05:09.756767764Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.623e-05
+level=info ts=2026-03-01T09:10:09.756915693Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.0648e-05
+level=info ts=2026-03-01T09:15:09.756314462Z caller=poller.go:249 msg="blocklist poll complete" seconds=8.2375e-05
+level=info ts=2026-03-01T09:18:01.627391591Z caller=metrics_query_range_handler.go:220 msg="query range request" tenant=single-tenant query="{} | rate()" range_nanos=60000000000 mode= step=1000000000
+level=error ts=2026-03-01T09:18:01.629375108Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.629449954Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772356641000000000&end=1772356703000000000&step=1s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7B%7D+%7C+rate%28%29&exemplars=100&maxSeries=0&instant=false (500) 200.872µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=error ts=2026-03-01T09:18:01.630226966Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.630268453Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772356641000000000&end=1772356703000000000&step=1s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7B%7D+%7C+rate%28%29&exemplars=100&maxSeries=0&instant=false (500) 136.512µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:01.630577125Z caller=metrics_query_range_handler.go:178 msg="query range response - no resp" tenant=single-tenant duration_seconds=0.003280638 error=null
+level=info ts=2026-03-01T09:18:01.630627676Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/metrics/query_range?start=1772356642000000000&end=1772356703000000000&step=1s&mode=&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7B%7D+%7C+rate%28%29&exemplars=0&maxSeries=0&instant=false" duration=3.329658ms response_size=0 status=500
+level=warn ts=2026-03-01T09:18:01.630680453Z caller=server.go:2322 msg="GET /api/metrics/query_range?end=1772356703&q=%7B%7D+%7C+rate%28%29&start=1772356643 (500) 3.446259ms Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:01.669398804Z caller=tag_handlers.go:518 msg="search tag request" tenant=single-tenant handler=SearchTagsV2 scope= range_seconds=0
+level=info ts=2026-03-01T09:18:01.673553842Z caller=tag_handlers.go:527 msg="search tag response" tenant=single-tenant handler=SearchTagsV2 scope= range_seconds=0 duration_seconds=0.004141221 inspected_bytes=0 request_throughput=0 error=null
+level=info ts=2026-03-01T09:18:01.6736139Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/v2/search/tags?end=1772356681&limit=5000&start=1772355781" duration=4.24734ms response_size=430 status=200
+level=error ts=2026-03-01T09:18:01.694241155Z caller=search_handlers.go:114 msg="search: could not create combiner" err="invalid TraceQL query: parse error at line 0, col 3: syntax error: unexpected &&"
+level=info ts=2026-03-01T09:18:01.694302281Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/search?end=1772356703&limit=200&q=%7B+%26%26+true%7D&spss=10&start=1772354903" duration=87.155µs response_size=0 status=400
+level=info ts=2026-03-01T09:18:01.739705328Z caller=search_handlers.go:224 msg="search request" tenant=single-tenant query="{nestedSetParent<0 && true}" range_seconds=1800 limit=200 spans_per_spanset=10
+level=info ts=2026-03-01T09:18:01.743177004Z caller=search_handlers.go:205 msg="search response" tenant=single-tenant query="{nestedSetParent<0 && true}" range_seconds=1800 duration_seconds=0.003513864 request_throughput=0 total_requests=3 total_blockBytes=0 total_blocks=0 completed_requests=3 inspected_bytes=0 inspected_traces=0 inspected_spans=0 status_code=200 error=null
+level=info ts=2026-03-01T09:18:01.743255472Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/search?end=1772356681&limit=200&q=%7BnestedSetParent%3C0+%26%26+true%7D&spss=10&start=1772354903" duration=3.605019ms response_size=57 status=200
+level=info ts=2026-03-01T09:18:01.874501966Z caller=metrics_query_range_handler.go:220 msg="query range request" tenant=single-tenant query="{nestedSetParent<0 && true} | rate()  with(sample=true)" range_nanos=1800000000000 mode= step=28000000000
+level=error ts=2026-03-01T09:18:01.876356117Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.876415583Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354881874760475&end=1772356712000000000&step=28s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+rate%28%29++with%28sample%3Dtrue%29&exemplars=98&maxSeries=0&instant=false (500) 178.804µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=error ts=2026-03-01T09:18:01.876915494Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.877033376Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354881874760475&end=1772356712000000000&step=28s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+rate%28%29++with%28sample%3Dtrue%29&exemplars=98&maxSeries=0&instant=false (500) 199.078µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:01.877317099Z caller=metrics_query_range_handler.go:178 msg="query range response - no resp" tenant=single-tenant duration_seconds=0.002826684 error=null
+level=info ts=2026-03-01T09:18:01.877389055Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/metrics/query_range?start=1772354864000000000&end=1772356712000000000&step=28s&mode=&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+rate%28%29++with%28sample%3Dtrue%29&exemplars=0&maxSeries=0&instant=false" duration=2.901057ms response_size=0 status=500
+level=warn ts=2026-03-01T09:18:01.877431763Z caller=server.go:2322 msg="GET /api/metrics/query_range?end=1772356703&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+rate%28%29++with%28sample%3Dtrue%29&start=1772354903&step=28s (500) 2.98631ms Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:01.944396167Z caller=metrics_query_range_handler.go:220 msg="query range request" tenant=single-tenant query="{nestedSetParent<0 && true && status=error} | rate()  with(sample=true)" range_nanos=1800000000000 mode= step=28000000000
+level=error ts=2026-03-01T09:18:01.94667269Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.946857205Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354881944647070&end=1772356712000000000&step=28s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true+%26%26+status%3Derror%7D+%7C+rate%28%29++with%28sample%3Dtrue%29&exemplars=98&maxSeries=0&instant=false (500) 345.851µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=error ts=2026-03-01T09:18:01.94779686Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.947928883Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354881944647070&end=1772356712000000000&step=28s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true+%26%26+status%3Derror%7D+%7C+rate%28%29++with%28sample%3Dtrue%29&exemplars=98&maxSeries=0&instant=false (500) 229.87µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:01.948601186Z caller=metrics_query_range_handler.go:178 msg="query range response - no resp" tenant=single-tenant duration_seconds=0.004216896 error=null
+level=info ts=2026-03-01T09:18:01.948648042Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/metrics/query_range?start=1772354864000000000&end=1772356712000000000&step=28s&mode=&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true+%26%26+status%3Derror%7D+%7C+rate%28%29++with%28sample%3Dtrue%29&exemplars=0&maxSeries=0&instant=false" duration=4.261302ms response_size=0 status=500
+level=warn ts=2026-03-01T09:18:01.948679506Z caller=server.go:2322 msg="GET /api/metrics/query_range?end=1772356703&q=%7BnestedSetParent%3C0+%26%26+true+%26%26+status%3Derror%7D+%7C+rate%28%29++with%28sample%3Dtrue%29&start=1772354903&step=28s (500) 4.36623ms Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:01.951392416Z caller=metrics_query_range_handler.go:220 msg="query range request" tenant=single-tenant query="{nestedSetParent<0 && true} | histogram_over_time(duration) with(sample=true)" range_nanos=1800000000000 mode= step=75000000000
+level=error ts=2026-03-01T09:18:01.952977277Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.953031447Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354881951564385&end=1772356725000000000&step=1m15s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+histogram_over_time%28duration%29+with%28sample%3Dtrue%29&exemplars=92&maxSeries=0&instant=false (500) 135.8µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=error ts=2026-03-01T09:18:01.953574556Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.953642288Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354881951564385&end=1772356725000000000&step=1m15s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+histogram_over_time%28duration%29+with%28sample%3Dtrue%29&exemplars=92&maxSeries=0&instant=false (500) 188.844µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:01.953964528Z caller=metrics_query_range_handler.go:178 msg="query range response - no resp" tenant=single-tenant duration_seconds=0.002579337 error=null
+level=info ts=2026-03-01T09:18:01.954005306Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/metrics/query_range?start=1772354775000000000&end=1772356725000000000&step=1m15s&mode=&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+histogram_over_time%28duration%29+with%28sample%3Dtrue%29&exemplars=0&maxSeries=0&instant=false" duration=2.619116ms response_size=0 status=500
+level=warn ts=2026-03-01T09:18:01.954046601Z caller=server.go:2322 msg="GET /api/metrics/query_range?end=1772356703&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+histogram_over_time%28duration%29+with%28sample%3Dtrue%29&start=1772354903&step=75s (500) 2.691298ms Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:01.974304829Z caller=metrics_query_range_handler.go:220 msg="query range request" tenant=single-tenant query="{nestedSetParent<0 && true} | rate() " range_nanos=1800000000000 mode= step=28000000000
+level=error ts=2026-03-01T09:18:01.976145782Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.976209989Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354881974564348&end=1772356712000000000&step=28s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+rate%28%29+&exemplars=98&maxSeries=0&instant=false (500) 154.659µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=error ts=2026-03-01T09:18:01.976794117Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:01.97691183Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354881974564348&end=1772356712000000000&step=28s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+rate%28%29+&exemplars=98&maxSeries=0&instant=false (500) 197.463µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:01.977143066Z caller=metrics_query_range_handler.go:178 msg="query range response - no resp" tenant=single-tenant duration_seconds=0.002849096 error=null
+level=info ts=2026-03-01T09:18:01.977195929Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/metrics/query_range?start=1772354864000000000&end=1772356712000000000&step=28s&mode=&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+rate%28%29+&exemplars=0&maxSeries=0&instant=false" duration=2.897456ms response_size=0 status=500
+level=warn ts=2026-03-01T09:18:01.977237064Z caller=server.go:2322 msg="GET /api/metrics/query_range?end=1772356703&q=%7BnestedSetParent%3C0+%26%26+true%7D+%7C+rate%28%29+&start=1772354903&step=28s (500) 2.979386ms Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:02.019482053Z caller=metrics_query_range_handler.go:220 msg="query range request" tenant=single-tenant query="{nestedSetParent<0 && true && undefined != nil} | rate() by(undefined)" range_nanos=1800000000000 mode= step=28000000000
+level=error ts=2026-03-01T09:18:02.019616106Z caller=metrics_query_range_handler.go:154 msg="query range: query range combiner failed" err="compiling query: parse error at line 1, col 31: unknown identifier: undefined"
+level=info ts=2026-03-01T09:18:02.019647772Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/metrics/query_range?start=1772354864000000000&end=1772356712000000000&step=28s&mode=&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true+%26%26+undefined+%21%3D+nil%7D+%7C+rate%28%29+by%28undefined%29&exemplars=0&maxSeries=0&instant=false" duration=178.106µs response_size=0 status=400
+level=info ts=2026-03-01T09:18:02.05452547Z caller=metrics_query_range_handler.go:220 msg="query range request" tenant=single-tenant query="{nestedSetParent<0 && true && resource.service.name != nil} | rate() by(resource.service.name)" range_nanos=1800000000000 mode= step=28000000000
+level=error ts=2026-03-01T09:18:02.056455732Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:02.056536514Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354882054765143&end=1772356712000000000&step=28s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true+%26%26+resource.service.name+%21%3D+nil%7D+%7C+rate%28%29+by%28resource.service.name%29&exemplars=98&maxSeries=0&instant=false (500) 187.481µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=error ts=2026-03-01T09:18:02.057037717Z caller=querier_query_range.go:36 msg="error querying generators in Querier.queryRangeRecent" err="error finding generators: empty ring"
+level=warn ts=2026-03-01T09:18:02.05708492Z caller=server.go:2322 msg="GET /querier/api/metrics/query_range?start=1772354882054765143&end=1772356712000000000&step=28s&mode=recent&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true+%26%26+resource.service.name+%21%3D+nil%7D+%7C+rate%28%29+by%28resource.service.name%29&exemplars=98&maxSeries=0&instant=false (500) 140.095µs Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:18:02.05741616Z caller=metrics_query_range_handler.go:178 msg="query range response - no resp" tenant=single-tenant duration_seconds=0.002903382 error=null
+level=info ts=2026-03-01T09:18:02.057474477Z caller=handler.go:135 msg="query stats" tenant=single-tenant method=GET traceID= url="/api/metrics/query_range?start=1772354864000000000&end=1772356712000000000&step=28s&mode=&blockID=&startPage=0&pagesToSearch=0&version=&encoding=&size=0&footerSize=0&q=%7BnestedSetParent%3C0+%26%26+true+%26%26+resource.service.name+%21%3D+nil%7D+%7C+rate%28%29+by%28resource.service.name%29&exemplars=0&maxSeries=0&instant=false" duration=2.960435ms response_size=0 status=500
+level=warn ts=2026-03-01T09:18:02.057518161Z caller=server.go:2322 msg="GET /api/metrics/query_range?end=1772356703&q=%7BnestedSetParent%3C0+%26%26+true+%26%26+resource.service.name+%21%3D+nil%7D+%7C+rate%28%29+by%28resource.service.name%29&start=1772354903&step=28s (500) 3.0498ms Response: \"error querying generators in Querier.queryRangeRecent: error finding generators: empty ring\\n\""
+level=info ts=2026-03-01T09:20:09.757593419Z caller=poller.go:249 msg="blocklist poll complete" seconds=0.000564041
+level=info ts=2026-03-01T09:25:09.756504695Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.7561e-05
+level=info ts=2026-03-01T09:30:09.756678277Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.9414e-05
+level=info ts=2026-03-01T09:35:09.7563715Z caller=poller.go:249 msg="blocklist poll complete" seconds=8.7217e-05
+level=info ts=2026-03-01T09:40:09.757084476Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.3804e-05
+level=info ts=2026-03-01T09:45:09.756292699Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.6646e-05
+level=info ts=2026-03-01T09:50:09.756374588Z caller=poller.go:249 msg="blocklist poll complete" seconds=8.9123e-05
+level=info ts=2026-03-01T09:55:09.756426864Z caller=poller.go:249 msg="blocklist poll complete" seconds=8.3331e-05
+level=info ts=2026-03-01T10:00:09.756349449Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.9143e-05
+level=info ts=2026-03-01T10:05:09.756722274Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.6847e-05
+level=info ts=2026-03-01T10:10:09.757308558Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.0763e-05
+level=info ts=2026-03-01T10:15:09.756726159Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.1597e-05
+level=info ts=2026-03-01T10:20:09.756603367Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.0246e-05
+level=info ts=2026-03-01T10:25:09.756359273Z caller=poller.go:249 msg="blocklist poll complete" seconds=8.127e-05
+level=info ts=2026-03-01T10:30:09.756770366Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.6734e-05
+level=info ts=2026-03-01T10:35:09.756530263Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.319e-05
+level=info ts=2026-03-01T10:40:09.756289579Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.9392e-05
+level=info ts=2026-03-01T10:45:09.75711727Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.8226e-05
+level=info ts=2026-03-01T10:50:09.756570246Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.4508e-05
+level=info ts=2026-03-01T10:55:09.75667157Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.9188e-05
+level=info ts=2026-03-01T11:00:09.756265184Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.2049e-05
+level=info ts=2026-03-01T11:05:09.756723822Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.5969e-05
+level=info ts=2026-03-01T11:10:09.757009588Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.8883e-05
+level=info ts=2026-03-01T11:15:09.756267055Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.8456e-05
+level=info ts=2026-03-01T11:20:09.757167385Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.0446e-05
+level=info ts=2026-03-01T11:25:09.756436992Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.2629e-05
+level=info ts=2026-03-01T11:30:09.756681077Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.1563e-05
+level=info ts=2026-03-01T11:35:09.757157717Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.0506e-05
+level=info ts=2026-03-01T11:40:09.756590921Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.8468e-05
+level=info ts=2026-03-01T11:45:09.756455452Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.8097e-05
+level=info ts=2026-03-01T11:50:09.757078736Z caller=poller.go:249 msg="blocklist poll complete" seconds=0.000105256
+level=info ts=2026-03-01T11:55:09.756670649Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.8191e-05
+level=info ts=2026-03-01T12:00:09.75629697Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.9175e-05
+level=info ts=2026-03-01T12:05:09.757167917Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.5133e-05
+level=info ts=2026-03-01T12:10:09.756931243Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.8613e-05
+level=info ts=2026-03-01T12:15:09.757124558Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.266e-05
+level=info ts=2026-03-01T12:20:09.756408197Z caller=poller.go:249 msg="blocklist poll complete" seconds=8.1471e-05
+level=info ts=2026-03-01T12:25:09.75626286Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.3091e-05
+level=info ts=2026-03-01T12:30:09.75646841Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.557e-05
+level=info ts=2026-03-01T12:35:09.756725673Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.0617e-05
+level=info ts=2026-03-01T12:40:09.757171434Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.3599e-05
+level=info ts=2026-03-01T12:45:09.756288765Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.5948e-05
+level=info ts=2026-03-01T12:50:09.757181136Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.1246e-05
+level=info ts=2026-03-01T12:50:49.758518717Z caller=reporter.go:272 msg="reporting cluster stats" date=2026-03-01T12:50:49.758516309Z
+level=info ts=2026-03-01T12:55:09.756511401Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.1752e-05
+level=info ts=2026-03-01T13:00:09.757114848Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.9983e-05
+level=info ts=2026-03-01T13:05:09.756778602Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.4057e-05
+level=info ts=2026-03-01T13:10:09.757074736Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.6939e-05
+level=info ts=2026-03-01T13:15:09.756641099Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.6623e-05
+level=info ts=2026-03-01T13:20:09.756271268Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.4868e-05
+level=info ts=2026-03-01T13:25:09.756705866Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.7332e-05
+level=info ts=2026-03-01T13:30:09.756451466Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.9925e-05
+level=info ts=2026-03-01T13:35:09.757265054Z caller=poller.go:249 msg="blocklist poll complete" seconds=7.079e-05
+level=info ts=2026-03-01T13:40:09.756458036Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.7088e-05
+level=info ts=2026-03-01T13:45:09.75626539Z caller=poller.go:249 msg="blocklist poll complete" seconds=6.8603e-05
+level=info ts=2026-03-01T13:46:40.523781285Z caller=app.go:244 msg="=== received SIGINT/SIGTERM ===\n*** exiting"
+level=info ts=2026-03-01T13:46:40.524314023Z caller=module_service.go:120 msg="module stopped" module=metrics-generator
+level=info ts=2026-03-01T13:46:40.525271055Z caller=module_service.go:120 msg="module stopped" module=compactor
+level=info ts=2026-03-01T13:46:40.525415817Z caller=lifecycler.go:612 msg="lifecycler loop() exited gracefully" ring=ingester
+level=info ts=2026-03-01T13:46:40.525448657Z caller=lifecycler.go:996 msg="changing instance state from" old_state=ACTIVE new_state=LEAVING ring=ingester
+level=info ts=2026-03-01T13:46:40.525623438Z caller=lifecycler.go:1099 msg="lifecycler entering final sleep before shutdown" final_sleep=0s
+level=info ts=2026-03-01T13:46:40.525709931Z caller=module_service.go:120 msg="module stopped" module=optional-store
+level=info ts=2026-03-01T13:46:40.525750526Z caller=lifecycler.go:664 msg="instance removed from the KV store" ring=ingester
+level=info ts=2026-03-01T13:46:40.526104139Z caller=module_service.go:120 msg="module stopped" module=ingester
+level=info ts=2026-03-01T13:46:40.526284247Z caller=frontend.go:333 msg="received shutdown notification from querier" querier=ip-172-31-42-1
+level=warn ts=2026-03-01T13:46:40.526543729Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.768041517s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.526587576Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767119528s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.526625512Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.766562282s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.526653696Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.766650014s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.526680045Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767138866s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.526713509Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767613207s msg=gRPC err="queue is stopped"
+level=info ts=2026-03-01T13:46:40.526709391Z caller=module_service.go:120 msg="module stopped" module=distributor
+level=warn ts=2026-03-01T13:46:40.527029776Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767084153s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527061607Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767414s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527089459Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767294659s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527115283Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.766994751s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527139964Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.768505993s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527174034Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767459213s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527201272Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767367467s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527228121Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.76749444s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527266864Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.768687162s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527292459Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767515834s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527318077Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767431511s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527369236Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.767823381s msg=gRPC err="queue is stopped"
+level=warn ts=2026-03-01T13:46:40.527397652Z caller=server.go:1562 method=/frontend.Frontend/Process duration=4h56m30.769335293s msg=gRPC err="queue is stopped"
+level=info ts=2026-03-01T13:46:40.527453292Z caller=module_service.go:120 msg="module stopped" module=querier
+level=info ts=2026-03-01T13:46:40.527548915Z caller=module_service.go:120 msg="module stopped" module=secondary-ring
+level=info ts=2026-03-01T13:46:40.527577494Z caller=module_service.go:120 msg="module stopped" module=query-frontend
+level=info ts=2026-03-01T13:46:40.527730405Z caller=module_service.go:120 msg="module stopped" module=usage-report
+level=info ts=2026-03-01T13:46:40.527768807Z caller=module_service.go:120 msg="module stopped" module=overrides-api
+level=info ts=2026-03-01T13:46:40.527863737Z caller=module_service.go:120 msg="module stopped" module=store
+level=info ts=2026-03-01T13:46:40.527889754Z caller=module_service.go:120 msg="module stopped" module=overrides
+level=info ts=2026-03-01T13:46:40.528391079Z caller=module_service.go:120 msg="module stopped" module=cache-provider
+level=info ts=2026-03-01T13:46:40.626797044Z caller=module_service.go:120 msg="module stopped" module=live-store-ring
+level=info ts=2026-03-01T13:46:40.626905848Z caller=module_service.go:120 msg="module stopped" module=metrics-generator-ring
+level=info ts=2026-03-01T13:46:40.626972313Z caller=module_service.go:120 msg="module stopped" module=ring
+level=info ts=2026-03-01T13:46:40.627038231Z caller=module_service.go:120 msg="module stopped" module=memberlist-kv
+level=info ts=2026-03-01T13:46:40.627786984Z caller=server_service.go:170 msg="server stopped"
+level=info ts=2026-03-01T13:46:40.62782484Z caller=module_service.go:120 msg="module stopped" module=server
+level=info ts=2026-03-01T13:46:40.627938143Z caller=module_service.go:120 msg="module stopped" module=internal-server
+level=info ts=2026-03-01T13:46:40.627969416Z caller=app.go:217 msg="Tempo stopped"
